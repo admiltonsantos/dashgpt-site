@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fale com Seus Dados. Deixe a IA Mostrar as Respostas.</title>
+
+    <link href="./style_cadastro.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .html {
+        font-size: 16px; /* base para 1rem = 16px */
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 0;
+        /*
+        background-color: #08132b;
+        background: linear-gradient(to right, #12023b, #01163b, #16598a);
+        */
+        background: linear-gradient(
+          to right,
+          #12023b,
+          #01163b,
+          rgb(124, 124, 134)
+        );
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .titulo-video {
+        text-align: center;
+        font-weight: 600;
+        width: 100%;
+      }
+
+      .text-titulo {
+        font-size: 2.53rem;
+        text-align: center;
+        font-weight: 600;
+        width: 100%;
+      }
+
+      .gradient-text-subtitulo {
+        font-size: 2.4rem;
+        background: linear-gradient(
+          to right,
+          #ffffff,
+          #ffffff,
+          #bbf1d0,
+          #f0f4c8,
+          #cdd5de
+        );
+      }
+
+      .gradient-text-titulo {
+        font-size: 3.8rem;
+        background: linear-gradient(
+          to right,
+          #fff,
+          #707492,
+          #fff,
+          #4a6fa5,
+          #9fc9f3
+        );
+      }
+
+      .gradient-text-subtitulo,
+      .gradient-text-titulo {
+        font-weight: bold;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text; /* Para compatibilidade com Firefox */
+        color: transparent;
+      }
+
+      .button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 300px;
+        border: none;
+        border-radius: 0.5rem;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #45a049;
+      }
+
+      .container {
+        width: 100%;
+        padding: 1rem;
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem; /*20px; */
+        color: #fff;
+        line-height: 1.2;
+      }
+
+      h2 {
+        font-size: 1.5rem; /* equivalente a 24px */
+        line-height: 1.3;
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        color: #f0f0f0;
+      }
+
+      .cta-button {
+        background-color: #00b842;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-bottom: 50px;
+      }
+
+      .cta-button:hover {
+        background-color: #00802a;
+      }
+
+      .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      .card {
+        background-color: #142a4d;
+        border-radius: 8px;
+        padding: 32px;
+        width: 600px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+      }
+
+      iframe {
+        width: 100%;
+        height: 340px;
+        border: none;
+        border-radius: 8px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+      }
+
+      input,
+      textarea,
+      button,
+      input[type="file"] {
+        padding: 12px;
+        font-size: 1rem;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+      }
+
+      input,
+      textarea,
+      input[type="file"] {
+        background-color: #f5f5f5;
+        color: #000;
+      }
+
+      .button-group {
+        display: flex; /* lado a lado */
+        flex-direction: row; /* força linha, mesmo em mobile */
+        flex-wrap: wrap; /* permite quebrar se não couber */
+        gap: 0.5rem; /* espaço entre os botões */
+        align-items: center; /* alinha verticalmente */
+      }
+
+      button[type="submit"] {
+        background-color: #00b842;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #00802a;
+      }
+
+      .planilha-upload-button,
+      .btn-enviar {
+        display: flex;
+        padding: 8px 12px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+        flex: 1 1 auto; /* ocupam espaço disponível igualmente */
+        min-width: 8rem; /* evita ficarem muito estreitos */
+      }
+
+      /* Celulares (até 480px) */
+      .titulo {
+        font-size: 1.5rem;
+      }
+      .form-cadastro {
+        font-size: 1rem;
+      }
+
+      .fale-conosco,
+      .subtitulo {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .cabecalho {
+        font-size: 1.1rem;
+      }
+
+      .form-grupo label {
+        display: flex;
+        margin-bottom: 0.8rem;
+        color: #fff;
+        font-size: 0.9rem;
+      }
+      .ajuste-esquerda {
+        margin-left: -50px;
+      }
+
+      .ajuste-esquerda-1 {
+        margin-left: 1px;
+      }
+
+      .ajuste-esquerda-10 {
+        margin-left: 10px;
+      }
+
+      .button {
+          font-size: 0.9rem;
+          width: 90%;
+        }
+
+      @media (max-width: 768px) {
+        .titulo {
+          font-size: 1.5rem;; /* ~14px   0.875rem;*/
+        }
+
+        .subtitulo {
+          display: flex;
+          font-size: 1.1rem;; /* ~14px   0.875rem;*/
+          text-align: left;
+        }
+
+        .titulo-video {
+          font-size: 1rem; /* ~14px   0.875rem;*/
+        }
+
+        .form-cadastro {
+          font-size: 0.9rem; /* ~14px   0.875rem;*/
+        }
+
+        .button {
+          font-size: 0.9rem;
+          width: 90%;
+        }
+
+        .container {
+          padding: 1rem;
+          flex-direction: column;
+          text-align: center;
+          align-items: stretch;
+        }
+
+        .cards-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .planilha-upload-button {
+          margin-bottom: 20px;
+        }
+      }
+
+      /* Desktops médios (até 1320px) */
+      @media (max-width: 1320px) {
+        .cards-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .card {
+          width: 90%;
+        }
+
+        .button {
+          font-size: 0.9rem;
+          width: 90%;
+        }
+
+        .container {
+          padding: 1rem;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+      }
+
+      /* 🖥️ Telas grandes acima de 1320px */
+      @media (max-width: 1320px) {
+        .cards-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .card {
+          width: 90%;
+        }
+
+        .button {
+          font-size: 0.9rem;
+          width: 90%;
+        }
+
+        .container {
+          padding: 1rem;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+      }
+      @media (max-width: 1920px) {
+        .cards-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .card {
+          width: 90%;
+        }
+
+        .button {
+          font-size: 0.9rem;
+          width: 90%;
+        }
+
+        .container {
+          padding: 1rem;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="gradient-text-titulo titulo">
+          Já pensou em interagir com os dados como se estivesse trocando
+          mensagens?
+          <br /><br />
+        </div>
+        <div class="gradient-text-subtitulo subtitulo">
+          Digitando algo como:
+        </div>
+        <div class="ajuste-esquerda-10">
+          Mostre as vendas acumuladas a partir do mes atual,
+        </div>
+        <div class="ajuste-esquerda-1">
+          por vendedor, meses nas colunas e o total ao final.
+        </div>
+
+        <br />
+        <div class="gradient-text-subtitulo cabecalho">
+          Com a nossa solução, é simples assim!
+        </div>
+        <br />
+        <div class="cards-container">
+          <!-- Card com vídeo -->
+          <div class="card titulo-video">
+            Veja como tudo acontece!
+            <br />
+            <br />
+            <div id="videoContainer">
+              <iframe
+                src="https://drive.google.com/file/d/1-71CH_Qkqn8wOXftKBrMtNMxEGCKixIl/preview"
+                allow="autoplay"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div id="urlContainer">
+              <a
+                id="videoUrl"
+                href="https://drive.google.com/file/d/1-71CH_Qkqn8wOXftKBrMtNMxEGCKixIl/view"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+              </a>
+            </div>
+          </div>
+
+          <!-- Card com formulário -->
+          <div class="card">
+            <div class="fale-conosco">Fale com a gente<br /><br /></div>
+            <form id="dataForm" class="space-y-4">
+              <div class="form-grupo form-cadastro">
+                <label for="nome">Nome Completo:</label>
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  class="form-controle"
+                  value="cliente"
+                  required
+                />
+              </div>
+              <div class="form-grupo">
+                <label for="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-controle"
+                  value="cliente@g.com"
+                  required
+                />
+              </div>
+              <div class="form-grupo">
+                <label for="telefone">Telefone com DDD:</label>
+                <input
+                  type="tel"
+                  id="telefone"
+                  name="telefone"
+                  class="form-controle"
+                  value="(99) 9999-8888"
+                  required
+                />
+              </div>
+              <div class="form-grupo">
+                <label for="dataReuniao">Data da Reunião:</label>
+                <input
+                  type="date"
+                  id="dataReuniao"
+                  name="dataReuniao"
+                  class="form-controle"
+                  required
+                />
+              </div>
+              <div class="form-grupo planilha-grupo">
+                <div class="planilha-controle">
+                  <input
+                    type="file"
+                    id="planilha"
+                    name="planilha"
+                    class="hidden"
+                    accept=".xlsx,.xls"
+                  />
+
+                  <!-- Linha dos botões -->
+                  <div button>
+                    <div class="planilha-nome">
+                      <span id="planilha-nome">
+                        Nenhuma planilha selecionada
+                      </span>
+                    </div>
+                    <button type="button" class="planilha-upload-button">
+                      Selecionar planilha
+                    </button>
+                    <!-- Linha da mensagem -->
+
+                    <button type="submit" class="btn-enviar">
+                      Enviar e agendar reunião
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      const SUPABASE_URL = "https://woawqthzhdqlprslpepv.supabase.co";
+      const SUPABASE_PUBLIC_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndvYXdxdGh6aGRxbHByc2xwZXB2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY0NjIwODYsImV4cCI6MjA2MjAzODA4Nn0.q1Ijw5FgMLSFa_lTzl0DuFanpRVWEdKRmkf63Rnsw34";
+
+      const dataForm = document.getElementById("dataForm");
+      const feedback = document.getElementById("feedback");
+      const planilhaInput = document.getElementById("planilha");
+      const planilhaNome = document.getElementById("planilha-nome");
+      const telefoneInput = document.getElementById("telefone");
+
+      const planilhaUploadButton = document.querySelector(
+        ".planilha-upload-button"
+      );
+      planilha.addEventListener("change", (event) => {
+        const nomeArquivo = event.target.files[0]
+          ? event.target.files[0].name
+          : "";
+
+        planilhaNome.textContent = nomeArquivo
+          ? `Arquivo selecionado: ${nomeArquivo}`
+          : "Nenhum arquivo selecionado";
+
+        planilhaNome.classList.remove(
+          "selecionado-verde",
+          "nao-selecionado-vermelho"
+        );
+
+        planilhaNome.classList.add(
+          nomeArquivo ? "selecionado-verde" : "nao-selecionado-vermelho"
+        );
+      });
+
+      const confirmarEnvioButton = document.getElementById("confirmarEnvio");
+      const confirmCard = document.getElementById("confirmCard");
+      const closeFormBtn = document.getElementById("closeFormBtn");
+      //const nomeArquivo = planilhaInput.files[0]?.name || "";
+      //const nomeArquivo = planilhaInput.files ? (planilhaInput.files[0] ? planilhaInput.files[0].name : "") : "";
+      planilhaInput.addEventListener("change", (event) => {
+        const nomeArquivo =
+          planilhaInput.files && planilhaInput.files[0]
+            ? planilhaInput.files[0].name
+            : "";
+        planilhaNome.textContent = nomeArquivo
+          ? `Arquivo selecionado: ${nomeArquivo}`
+          : "";
+      });
+
+      function formatPhoneNumber(input) {
+        const numbers = input.replace(/\D/g, "");
+        let formattedNumber = "";
+        if (numbers.length <= 2) {
+          formattedNumber = `(${numbers})`;
+        } else if (numbers.length <= 6) {
+          formattedNumber = `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;
+        } else if (numbers.length <= 10) {
+          formattedNumber = `(${numbers.slice(0, 2)}) ${numbers.slice(
+            2,
+            6
+          )}-${numbers.slice(6)}`;
+        } else {
+          formattedNumber = `(${numbers.slice(0, 2)}) ${numbers.slice(
+            2,
+            7
+          )}-${numbers.slice(7, 11)}`;
+        }
+        return formattedNumber;
+      }
+
+      telefoneInput.addEventListener("input", () => {
+        telefoneInput.value = formatPhoneNumber(telefoneInput.value);
+      });
+
+      planilha.addEventListener("change", (event) => {
+        const nomeArquivo = event.target.files[0]
+          ? event.target.files[0].name
+          : "";
+
+        planilhaNome.textContent = nomeArquivo
+          ? `Arquivo selecionado: ${nomeArquivo}`
+          : "Nenhum arquivo selecionado";
+
+        planilhaNome.classList.remove(
+          "selecionado-verde",
+          "nao-selecionado-vermelho"
+        );
+
+        planilhaNome.classList.add(
+          nomeArquivo ? "selecionado-verde" : "nao-selecionado-vermelho"
+        );
+      });
+
+      planilhaUploadButton.addEventListener("click", () => {
+        planilha.click();
+      });
+
+      function isDiaUtil(date) {
+        const diaSemana = date.getDay();
+        return diaSemana !== 0 && diaSemana !== 6;
+      }
+
+      dataForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const nome = document.getElementById("nome").value;
+        const email = document.getElementById("email").value;
+
+        const telefoneFormatado = telefoneInput.value;
+        const telefone = formatPhoneNumber(telefoneFormatado);
+
+        const dataReuniaoInput = document.getElementById("dataReuniao").value;
+        const dataReuniao = new Date(dataReuniaoInput);
+
+        const planilhaFile = planilhaInput.files[0];
+
+        if (!planilhaFile) {
+          mostrarFeedback(
+            "Erro: Por favor, selecione um arquivo de planilha.",
+            "erro"
+          );
+          return;
+        }
+
+        if (planilhaFile.size > 5 * 1024 * 1024) {
+          mostrarFeedback(
+            "Erro: O arquivo da planilha excede o tamanho máximo de 5MB.",
+            "erro"
+          );
+          return;
+        }
+        const dataAtual = new Date();
+        dataAtual.setHours(0, 0, 0, 0);
+        console.log(`dataReuniao: ${dataReuniao} date=${dataAtual}`);
+
+        if (dataReuniao >= dataAtual || !isDiaUtil(dataReuniao)) {
+          return mostrarFeedback("Erro: selecione uma data válida.", false);
+        }
+
+        if (!isDiaUtil(dataReuniao)) {
+          mostrarFeedback(
+            "Erro: A data da reunião deve ser um dia útil (segunda a sexta-feira).",
+            "erro"
+          );
+          return;
+        }
+
+        if (telefone.length < 8) {
+          mostrarFeedback(
+            "Erro: Formato de telefone inválido.  O telefone deve ter no mínimo 8 dígitos.",
+            "erro"
+          );
+          return;
+        }
+
+        if (!emailValido(email)) {
+          mostrarFeedback("Erro: E-mail inválido.", "erro");
+          return;
+        }
+
+        const dadosParaSalvar = {
+          nome: nome,
+          email: email,
+          telefone: telefone,
+          dataReuniao: dataReuniao,
+          arquivo: planilhaFile,
+          status: "confirmado",
+          timestamp: new Date().toISOString(),
+        };
+
+        try {
+          salvarNoSupabase(dadosParaSalvar); // Chame a função Supabase e aguarde a resposta
+          dataForm.reset();
+          planilhaNome.textContent = "Nenhum arquivo selecionado";
+          mostrarFeedback(
+            "Dados enviados com sucesso!  Aguarde o contato para agendar a reunião.",
+            "sucesso"
+          );
+        } catch (erro) {
+          alert(erro.FormData);
+          mostrarFeedback(
+            "Erro ao enviar os dados. Por favor, tente novamente.",
+            "erro"
+          );
+        }
+      });
+
+      function mostrarFeedback(mensagem, tipo) {
+        let feedback = document.getElementById("feedback");
+        if (!feedback) {
+          feedback = document.createElement("div");
+          feedback.id = "feedback";
+          feedback.style.marginTop = "20px";
+          feedback.style.padding = "10px";
+          feedback.style.borderRadius = "8px";
+          feedback.style.fontWeight = "600";
+          dataForm.appendChild(feedback);
+        }
+
+        if (tipo === "sucesso") {
+          feedback.style.backgroundColor = "#00b842";
+          feedback.style.color = "#fff";
+        } else {
+          feedback.style.backgroundColor = "#ff4d4d";
+          feedback.style.color = "#fff";
+        }
+
+        feedback.textContent = mensagem;
+
+        // Oculta a mensagem após 6 segundos
+        setTimeout(() => {
+          feedback.textContent = "";
+          feedback.style.backgroundColor = "";
+        }, 6000);
+      }
+
+      function emailValido(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+      }
+
+      async function salvarNoSupabase(dados) {
+        const { nome, email, telefone, dataReuniao, arquivo } = dados;
+        const dataFormatada = dataReuniao.split("T")[0];
+        const telefoneSemFormato = removerFormatacaoTelefone(telefone);
+
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/reunioes`, {
+          method: "POST",
+          headers: {
+            apikey: SUPABASE_PUBLIC_KEY,
+            Authorization: `Bearer ${SUPABASE_PUBLIC_KEY}`,
+            "Content-Type": "application/json",
+            Prefer: "return=representation",
+          },
+          body: JSON.stringify({
+            nome,
+            email,
+            telefone: telefoneSemFormato,
+            dataReuniao: dataFormatada,
+            arquivo,
+          }),
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error("Erro Supabase:", response.status, errorText);
+          throw new Error("Erro ao enviar dados para o Supabase.");
+        }
+
+        const data = await response.json();
+      }
+
+      function removerFormatacaoTelefone(telefone) {
+        return telefone.replace(/\D/g, "");
+      }
+    </script>
+  </body>
+</html>
