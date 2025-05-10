@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="./favicon-32x32.png">
+    <link rel="icon" href="./favicon-32x32.png" />
     <style>
       * {
         margin: 0;
@@ -60,6 +60,7 @@
 
       .gradient-text-subtitulo {
         font-size: 2.4rem;
+        /*
         background: linear-gradient(
           to right,
           #ffffff,
@@ -68,10 +69,12 @@
           #f0f4c8,
           #cdd5de
         );
+        */
       }
 
       .gradient-text-titulo {
         font-size: 3.8rem;
+        /*
         background: linear-gradient(
           to right,
           #fff,
@@ -80,17 +83,18 @@
           #9bafcd,
           #9fc9f3
         );
+        */
       }
-
+      /*
       .gradient-text-subtitulo,
       .gradient-text-titulo {
         font-weight: bold;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text; /* Para compatibilidade com Firefox */
-        color: transparent;
+        /*color: transparent;
       }
-
+      */
       .button {
         padding: 0.75rem 1.5rem;
         font-size: 1rem;
@@ -234,109 +238,63 @@
       }
 
       /* Celulares (até 480px) */
-      .gradient-text-titulo{
-        font-size: 1.5rem;
-        color: #fff;
-      }
-      .gradient-text-subtitulo{
-        font-size: 1.5rem;
-        color: #fff;
-      }
-      .titulo {
-        font-size: 1.5rem;
-        color: #fff;
-      }
-      .form-cadastro {
-        font-size: 1rem;
-        color: #fff;
-      }
-
-      .fale-conosco,
-      .subtitulo {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #fff;
-      }
-
-      .cabecalho {
-        font-size: 1.1rem;
-      }
-
-      .form-grupo label {
-        display: flex;
-        margin-bottom: 0.8rem;
-        color: #fff;
-        font-size: 0.9rem;
-      }
-      .ajuste-esquerda {
-        margin-left: -50px;
-      }
-
-      .ajuste-esquerda-1 {
-        margin-left: 1px;
-      }
-
-      .ajuste-esquerda-10 {
-        margin-left: 10px;
-      }
-
-      .button {
-          font-size: 0.9rem;
-          width: 90%;
-      }
-      body {
-
-        background: linear-gradient(
-            to right,
-            #12023b,
-            #01163b,
-            rgb(8, 2, 55)
-          );
-      }
-
-      @media (max-width: 768px) {
+      @media (max-width: 480px) {
+        .gradient-text-titulo {
+          font-size: 1.5rem;
+        }
+        .gradient-text-subtitulo {
+          font-size: 1.5rem;
+        }
         .titulo {
-          font-size: 1.5rem;; /* ~14px   0.875rem;*/
+          font-size: 1.5rem;
         }
-
-        .subtitulo {
-          display: flex;
-          font-size: 1.1rem;; /* ~14px   0.875rem;*/
-          text-align: left;
-        }
-
-        .titulo-video {
-          font-size: 1rem; /* ~14px   0.875rem;*/
-        }
-
         .form-cadastro {
-          font-size: 0.9rem; /* ~14px   0.875rem;*/
+          font-size: 1rem;
+        }
+
+        .fale-conosco,
+        .subtitulo {
+          font-size: 1.2rem;
+          font-weight: 600;
+        }
+
+        .cabecalho {
+          font-size: 1.1rem;
+        }
+
+        .form-grupo label {
+          display: flex;
+          margin-bottom: 0.8rem;
+          color: #fff;
+          font-size: 0.9rem;
+        }
+        .ajuste-esquerda {
+          margin-left: -50px;
+        }
+
+        .ajuste-esquerda-1 {
+          margin-left: 1px;
+        }
+
+        .ajuste-esquerda-10 {
+          margin-left: 10px;
         }
 
         .button {
           font-size: 0.9rem;
           width: 90%;
         }
-
-        .container {
-          padding: 1rem;
-          flex-direction: column;
-          text-align: center;
-          align-items: stretch;
+        body {
+          background: linear-gradient(
+            to right,
+            #12023b,
+            #01163b,
+            rgb(8, 2, 55)
+          );
         }
 
-        .cards-container {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .planilha-upload-button {
-          margin-bottom: 20px;
-        }
-      }
-
-      /* Desktops médios (até 1320px) */
-      @media (max-width: 1320px) {
+      /* Desktops médios (até 768px) */
+      @media (min-width: 481px) and (max-width: 768px) {
         .cards-container {
           flex-direction: column;
           align-items: center;
