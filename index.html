@@ -13,147 +13,124 @@
     <link rel="icon" href="./favicon-32x32.png" />
   </head>
   <body>
-    <main>
-      <div class="container">
-        <div class="gradient-text-titulo titulo">
-          Já pensou em interagir com os dados como se estivesse trocando
-          mensagens?
-          <br /><br />
-        </div>
-        <div class="gradient-text-subtitulo subtitulo">
-          Digitando algo como:
-        </div>
-        <div class="ajuste-esquerda-10">
-          Mostre as vendas acumuladas a partir do mes atual,
-        </div>
-        <div class="ajuste-esquerda-1">
-          por vendedor, meses nas colunas e o total ao final.
-        </div>
+  <main>
+    <section class="container">
+     <header class="gradient-text-titulo titulo">
+      Já pensou em interagir com os dados como se estivesse trocando mensagens? 
+    </header>
 
-        <br />
-        <div class="gradient-text-subtitulo cabecalho">
-          Com a nossa solução, é simples assim!
-        </div>
-        <br />
-        <div class="cards-container">
-          <!-- Card com vídeo -->
-          <div class="card titulo-video">
-            Veja como tudo acontece!
-            <br />
-            <br />
-            <video width="100%" controls>
+  <div class="subtitulo">
+    <span>Digitando algo como:</span>
+    <span class="quebra-linha subtexto">
+      Mostre as vendas acumuladas,
+      por vendedor, meses nas colunas e o total geral.
+    </span>
+  </div>
+
+  <div class="quebra-linha cabecalho">
+    Com a nossa solução, é simples assim!
+  </div>
+
+      <section class="cards-container">
+        <article class="card">
+          <div class="subtexto">
+             Veja como tudo acontece!
+          </div>
+
+          <div class="video-wrapper quebra-linha">
+            <video controls>
               <source
                 src="https://dash-site.netlify.app/video/dashfinal.mp4"
                 type="video/mp4"
               />
               Seu navegador não suporta a tag de vídeo.
             </video>
-            <!--div id="videoContainer">
-              <iframe
-                src="https://drive.google.com/file/d/1-71CH_Qkqn8wOXftKBrMtNMxEGCKixIl/preview"
-                allow="autoplay"
-                allowfullscreen
-              ></iframe>
+          </div>
+        </article>
+
+        <!-- Formulário -->
+        <article class="card">
+          <span class="quebra-linha subtexto">
+            Fale com a gente
+          </span>
+          <form id="dataForm" class="space-y-4">
+            <div class="form-grupo form-cadastro">
+              <label for="nome">Nome Completo:</label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                class="form-controle"
+                value="cliente"
+                required
+              />
             </div>
-            <div id="urlContainer">
-              <a
-                id="videoUrl"
-                href="https://drive.google.com/file/d/1-71CH_Qkqn8wOXftKBrMtNMxEGCKixIl/view"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-              </a>
-            </div-->
-          </div>
+            <div class="form-grupo">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-controle"
+                value="cliente@g.com"
+                required
+              />
+            </div>
+            <div class="form-grupo">
+              <label for="telefone">Telefone com DDD:</label>
+              <input
+                type="tel"
+                id="telefone"
+                name="telefone"
+                class="form-controle"
+                value="(99) 9999-8888"
+                required
+              />
+            </div>
+            <div class="form-grupo">
+              <label for="dataReuniao">Data da Reunião:</label>
+              <input
+                type="date"
+                id="dataReuniao"
+                name="dataReuniao"
+                class="form-controle"
+                required
+              />
+            </div>
 
-          <!-- Card com formulário -->
-          <div class="card">
-            <div class="fale-conosco">Fale com a gente<br /><br /></div>
-            <form id="dataForm" class="space-y-4">
-              <div class="form-grupo form-cadastro">
-                <label for="nome">Nome Completo:</label>
-                <input
-                  type="text"
-                  id="nome"
-                  name="nome"
-                  class="form-controle"
-                  value="cliente"
-                  required
-                />
-              </div>
-              <div class="form-grupo">
-                <label for="email">Email:</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="form-controle"
-                  value="cliente@g.com"
-                  required
-                />
-              </div>
-              <div class="form-grupo">
-                <label for="telefone">Telefone com DDD:</label>
-                <input
-                  type="tel"
-                  id="telefone"
-                  name="telefone"
-                  class="form-controle"
-                  value="(99) 9999-8888"
-                  required
-                />
-              </div>
-              <div class="form-grupo">
-                <label for="dataReuniao">Data da Reunião:</label>
-                <input
-                  type="date"
-                  id="dataReuniao"
-                  name="dataReuniao"
-                  class="form-controle"
-                  required
-                />
-              </div>
-              <div class="form-grupo planilha-grupo">
-                <div class="planilha-controle">
-                  <input
-                    type="file"
-                    id="planilha"
-                    name="planilha"
-                    class="hidden"
-                    accept=".xlsx,.xls"
-                  />
-                  <!-- Linha dos botões -->
-                  <div button>
-                    <div class="planilha-nome" style="margin-bottom: 5px">
-                      <span id="planilha-nome">
-                        Nenhuma planilha selecionada
-                      </span>
-                    </div>
-                    <button
-                      type="button"
-                      class="planilha-upload-button"
-                      style="
-                        margin-bottom: 15px;
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                      "
-                    >
-                      Selecionar planilha
-                    </button>
-                    <!-- Linha da mensagem -->
-
-                    <button type="submit" class="btn-enviar">
-                      Enviar e agendar reunião
-                    </button>
-                  </div>
+            <div class="form-grupo planilha-grupo">
+              <label for="planilha" class="sr-only"></label>
+              <input
+                type="file"
+                id="planilha"
+                name="planilha"
+                class="hidden"
+                accept=".xlsx,.xls"
+              />
+              <div class="planilha-controle">
+                <div class="planilha-nome">
+                  <span id="planilha-nome">Nenhuma planilha selecionada</span>
                 </div>
+                <button
+                  type="button"
+                  class="planilha-upload-button"
+                >
+                  Selecionar planilha
+                </button>
               </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </main>
+            </div>
+
+            <button type="submit" class="btn-enviar">
+              Enviar e agendar reunião
+            </button>
+          </form>
+        </article>
+      </section>
+    </section>
+  </main>
+</body>
+
+
     <script>
       const SUPABASE_URL = "https://woawqthzhdqlprslpepv.supabase.co";
       const SUPABASE_PUBLIC_KEY =
