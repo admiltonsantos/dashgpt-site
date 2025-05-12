@@ -1,3 +1,23 @@
+:root {
+    --cor-gradiente: linear-gradient(to right, #12023b, #100730, rgb(58, 58, 91));
+    --cor-principal: #00b842;
+    --cor-secundaria: #00802a;
+    --cor-fundo: #12023b;
+    --cor-verde: #00802a;
+    --cor-vermelha: #800002;
+    --cor-vermelho-claro: rgb(214, 127, 131);
+    --cor-branca: #fff;
+    --padding-padrao: 1rem;
+    --fonte-base: 16px;
+    --raio-borda: 0.5rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,28 +25,68 @@
 }
 
 html {
-    font-size: 16px;
+    font-size: var(--fonte-base);
 }
 
 body {
     font-family: "Inter", sans-serif;
-    color: #fff;
+    /*background: var(--cor-gradiente);*/
+    color: var(--cor-branca);
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to right, #12023b, #070447, rgb(7, 7, 102));
     background-size: cover;
     background-position: center;
-    padding: 1rem;
+    padding: var(--padding-padrao);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: var(--padding-padrao);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    background-color: black;
+}
+
+.button,
+.btn-enviar {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+    border: none;
+    border-radius: var(--raio-borda);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-enviar {
+    background: linear-gradient(to right, #4ade80, #3b82f6);
+}
+
+.btn-enviar:hover {
+    background: linear-gradient(to right, #22c55e, #2563eb);
 }
 
 h1,
 h2,
 h3 {
-    color: #fff;
+    color: var(--cor-branca);
     font-weight: 700;
     line-height: 1.3;
+}
+
+.button,
+.btn-enviar,
+.planilha-upload-button {
+    width: 90%;
+    font-size: 0.95rem;
 }
 
 h1 {
@@ -46,48 +106,20 @@ h3 {
 p {
     font-size: 1rem;
     padding: 1em;
-}
-
-label {
-    display: flex;
+    margin: 0.25rem 0;
+    line-height: 1.1;
 }
 
 .container {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     text-align: center;
     width: 100%;
-    max-width: 1200px;
     padding: 1rem;
     margin: 0 auto;
     background-color: transparent;
-}
-
-.button,
-.btn-enviar,
-.planilha-upload-button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    width: 100%;
-    max-width: 300px;
-    border: none;
-    border-radius: 0.5rem;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn-enviar {
-    background: linear-gradient(to right, #4ade80, #3b82f6);
-    font-weight: 600;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.btn-enviar:hover {
-    background: linear-gradient(to right, #22c55e, #2563eb);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
 }
 
 .planilha-upload-button {
@@ -116,16 +148,69 @@ label {
 
 .cards-container {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
+    margin-top: 2rem;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 5 / 3;
+    /* controla a proporção da área */
+    min-height: 300px;
+    /* garante altura mínima em telas estreitas */
+    /* Mantém proporção responsiva */
+    overflow: hidden;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* ajusta o vídeo para preencher sem distorcer */
+    border-radius: 8px;
+}
+
+.video-ajustado {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Ajusta o vídeo ao container */
+}
+
+.video-wrapper {
+    width: 100%;
+
+    /*  height: 550px; Defina uma altura real desejada */
+    max-height: 80vh;
+    aspect-ratio: 5/3;
+    /* Alternativamente, limite com altura relativa à viewport */
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Preenche a área sem distorcer */
+    display: block;
 }
 
 .card {
     background-color: #142a4d;
     border-radius: 8px;
     padding: 2rem;
-    width: 100%;
+    width: 90%;
     max-width: 600px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
@@ -167,6 +252,11 @@ input[type="file"] {
     color: #000;
 }
 
+label {
+    display: flex;
+    font-size: 1.2rem;
+}
+
 .form-controle {
     width: 100%;
     padding: 0.75rem;
@@ -174,7 +264,7 @@ input[type="file"] {
     border: 1px solid #d1d5db;
     color: #0e3169;
     transition: border-color 0.2s ease-in-out;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .form-controle:focus {
@@ -197,8 +287,8 @@ input[type="file"] {
 }
 
 .planilha-nome {
-    font-size: 0.8rem;
-    color: #fff;
+    font-size: 1.2rem;
+    color: var(--cor-vermelho-claro);
 }
 
 .container-planilha {
@@ -230,21 +320,51 @@ input[type="file"] {
 .gradient-text-subtitulo {
     font-weight: 600;
     text-align: center;
+    font-size: 1rem;
 }
 
 .gradient-text-titulo {
     font-size: 3rem;
 }
 
-.gradient-text-subtitulo {
-    font-size: 2rem;
+.cabecalho {
+    font-size: 1.8rem;
 }
 
-.titulo-video,
-.text-titulo {
-    text-align: center;
-    font-weight: 600;
-    width: 100%;
+.subtitulo {
+    font-size: 1.6rem;
+}
+
+.subtexto-destaque {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #eff1f3;
+    color: rgb(164, 164, 80);
+}
+
+.subtexto {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: rgb(200, 200, 40);
+}
+
+.subtexto,
+.subtexto-destaque {
+    font-size: 1.4rem;
+    font-style: italic;
+}
+
+
+.cabecalho,
+.subtitulo,
+.subtexto {
+    margin: 0.2rem 0;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.gradient-text-subtitulo {
+    font-size: 2rem;
 }
 
 .text-titulo {
@@ -264,46 +384,85 @@ input[type="file"] {
 }
 
 .nao-selecionado-vermelho {
-    color: #e21313;
+    color: var(--cor-vermelha);
+}
+
+.quebra-linha {
+    display: inline-block;
+    max-width: 100%;
+    word-break: break-word;
 }
 
 /* Responsividade */
 
-@media (min-width: 600px) {
-    .gradient-text-titulo {
-        font-size: 1rem;
+/* Celulares pequenos */
+@media (max-width: 479px) {
+    body {
+        background-color: forestgreen;
     }
 
-    .gradient-text-subtitulo,
-    .text-titulo {
-        font-size: 1rem;
+    .video-wrapper {
+        height: 300px;
+    }
+}
+
+/* Celulares maiores e paisagem */
+@media (min-width: 480px) and (max-width: 599px) {
+    body {
+        background-color: rgb(72, 2, 2);
     }
 
-    .container {
-        flex-direction: column;
-        background-color: rgb(55, 37, 195);
+    .video-wrapper {
+        height: 550px;
+    }
+}
+
+/* Tablets e telas médias */
+@media (min-width: 600px) and (max-width: 1023px) {
+    body {
+        background-color: rgb(142, 54, 92);
     }
 
-    .card {
-        width: 90%;
+    .cards-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
     }
 
-    .button,
-    .btn-enviar,
-    .planilha-upload-button {
-        width: 90%;
-        font-size: 0.95rem;
+    .cards-container .card {
+        flex: 1;
+        max-width: 48%;
+        /* Dois cards por linha com espaço */
     }
 
-    .ajuste-esquerda {
-        margin-left: -50px;
+    .quebra-linha {
+        font-size: 1.25rem;
     }
 
-    .ajuste-esquerda-1 {
-        margin-left: 1px;
+    .video-wrapper {
+        height: 550px;
+    }
+}
+
+/* Telas grandes (laptops/desktops) */
+@media (min-width: 1024px) {
+    body {
+        background-color: rgb(55, 52, 156);
     }
 
-    .ajuste-esquerda-10 {
-        margin-left: 10px;
+    .cards-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
+    .cards-container .card {
+        flex: 1;
+        max-width: 48%;
+        /* Dois cards por linha com espaço */
+    }
+
+    .video-wrapper {
+        height: 550px;
     }
 }
