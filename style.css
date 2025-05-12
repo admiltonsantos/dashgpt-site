@@ -5,8 +5,9 @@
     --cor-fundo: #12023b;
     --cor-verde: #00802a;
     --cor-vermelha: #800002;
-    --cor-vermelho-claro: rgb(214, 127, 131);
+    --cor-vermelha-clara: rgb(214, 127, 131);
     --cor-branca: #fff;
+    --cor-amarela-clara: rgb(239, 239, 167);
     --padding-padrao: 1rem;
     --fonte-base: 16px;
     --raio-borda: 0.5rem;
@@ -34,7 +35,6 @@ body {
     color: var(--cor-branca);
     display: flex;
     flex-direction: column;
-    align-items: center;
     min-height: 100vh;
     background-size: cover;
     background-position: center;
@@ -47,75 +47,101 @@ body {
     padding: var(--padding-padrao);
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1rem;
-    text-align: center;
     background-color: black;
 }
 
 .button,
 .btn-enviar {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.0rem;
     font-size: 1rem;
     width: 100%;
     max-width: 300px;
     border: none;
     border-radius: var(--raio-borda);
-    color: white;
+    color: var(--cor-branca);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
+.botao-upload-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.botoes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* 
+    Alinha os blocos pelos botões 
+     align-items: flex-end;
+    */
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.botao-bloco {
+    flex: 1 1 300px;
+    /* mínimo de 300px, mas pode crescer */
+    min-width: 240px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.planilha-controle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+#planilha-nome,
+.planilha-nome {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--cor-vermelha-clara);
+}
+
+.planilha-upload-button {
+    padding-top: 0.1rem;
+    font-size: 1rem;
+    padding-top: 0.9rem;
+    color: var(--cor-branca);
+}
+
 .btn-enviar {
     background: linear-gradient(to right, #4ade80, #3b82f6);
+    width: 100%;
+    color: var(--cor-branca);
+    padding-top: 0.4rem;
 }
 
 .btn-enviar:hover {
     background: linear-gradient(to right, #22c55e, #2563eb);
 }
 
-h1,
-h2,
-h3 {
-    color: var(--cor-branca);
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-.button,
-.btn-enviar,
-.planilha-upload-button {
-    width: 90%;
-    font-size: 0.95rem;
-}
-
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-h2 {
-    font-size: 1.5rem;
-}
-
-h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1.875rem;
-}
-
-p {
+.planilha-upload-button,
+.btn-enviar {
+    height: 48px;
+    width: 100%;
     font-size: 1rem;
-    padding: 1em;
-    margin: 0.25rem 0;
-    line-height: 1.1;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-items: center;
-    text-align: center;
     width: 100%;
     padding: 1rem;
     margin: 0 auto;
@@ -210,7 +236,7 @@ p {
     background-color: #142a4d;
     border-radius: 8px;
     padding: 2rem;
-    width: 90%;
+    width: 100%;
     max-width: 600px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
@@ -220,18 +246,15 @@ p {
     transform: translateY(-10px);
 }
 
-iframe {
-    width: 100%;
-    height: 340px;
-    border: none;
-    border-radius: 8px;
-}
-
 form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     width: 100%;
+}
+
+input[type="file"] {
+    display: none;
 }
 
 input,
@@ -254,7 +277,7 @@ input[type="file"] {
 
 label {
     display: flex;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .form-controle {
@@ -277,18 +300,6 @@ label {
     flex-wrap: wrap;
     gap: 0.5rem;
     align-items: center;
-}
-
-.planilha-controle {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-}
-
-.planilha-nome {
-    font-size: 1.2rem;
-    color: var(--cor-vermelho-claro);
 }
 
 .container-planilha {
@@ -319,41 +330,39 @@ label {
 .gradient-text-titulo,
 .gradient-text-subtitulo {
     font-weight: 600;
-    text-align: center;
     font-size: 1rem;
 }
 
-.gradient-text-titulo {
-    font-size: 3rem;
+.card {
+    width: 100%;
 }
 
-.cabecalho {
-    font-size: 1.8rem;
+.card-titulo {
+    font-size: 1.2rem;
+    color: var(--cor-amarela-clara);
+
+}
+
+.titulo {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: red;
 }
 
 .subtitulo {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
 }
 
-.subtexto-destaque {
-    font-size: 1.4rem;
+.mensagem-exemplo {
+    font-size: 1.1rem;
     font-style: italic;
-    color: #eff1f3;
-    color: rgb(164, 164, 80);
+    color: var(--cor-amarela-clara);
 }
 
 .subtexto {
-    font-size: 1.4rem;
-    font-style: italic;
-    color: rgb(200, 200, 40);
+    font-size: 1.2rem;
+    font-weight: 400;
 }
-
-.subtexto,
-.subtexto-destaque {
-    font-size: 1.4rem;
-    font-style: italic;
-}
-
 
 .cabecalho,
 .subtitulo,
@@ -361,14 +370,6 @@ label {
     margin: 0.2rem 0;
     line-height: 1.6;
     font-weight: 400;
-}
-
-.gradient-text-subtitulo {
-    font-size: 2rem;
-}
-
-.text-titulo {
-    font-size: 2.53rem;
 }
 
 .space-y-4>*+* {
@@ -393,27 +394,94 @@ label {
     word-break: break-word;
 }
 
-/* Responsividade */
 
-/* Celulares pequenos */
-@media (max-width: 479px) {
+/* iPhone SE, Android pequenos */
+@media (max-width: 480px) {
+
     body {
-        background-color: forestgreen;
+        background-color: rgb(15, 90, 15);
     }
 
-    .video-wrapper {
-        height: 300px;
+    /*
+     .titulo {
+        font-size: 1.5rem;
     }
+
+    .subtitulo {
+        font-size: 1.2rem;
+    }
+
+    .mensagem-exemplo {
+        font-size: 1.1rem;
+    }
+
+    .subtexto {
+        font-size: 1.2rem;
+    }
+
+    .card-titulo {
+        font-size: 1.2rem;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    #planilha-nome {
+        font-size: 1.1rem;
+    }
+
+    .planilha-upload-button {
+        font-size: 1rem;
+    }
+
+    .btn-enviar {
+        color: var(--cor-branca);
+    }
+    */
 }
 
-/* Celulares maiores e paisagem */
-@media (min-width: 480px) and (max-width: 599px) {
+/* iPhones e Androids padrão */
+@media (min-width: 481px) and (max-width: 576px) {
     body {
         background-color: rgb(72, 2, 2);
     }
 
-    .video-wrapper {
-        height: 550px;
+    .titulo {
+        font-size: 1.5rem;
+    }
+
+    .subtitulo {
+        font-size: 1.2rem;
+    }
+
+    .mensagem-exemplo {
+        font-size: 1.1rem;
+    }
+
+    .subtexto {
+        font-size: 1.2rem;
+    }
+
+    .card-titulo {
+        font-size: 1.2rem;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    #planilha-nome {
+        font-size: 1.1rem;
+    }
+
+    .planilha-upload-button {
+        font-size: 1rem;
+    }
+
+    .btn-enviar {
+        color: var(--cor-branca);
+        max-width: 350px;
     }
 }
 
@@ -424,6 +492,10 @@ label {
     }
 
     .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
         flex-direction: row;
         justify-content: space-between;
         align-items: stretch;
@@ -444,7 +516,6 @@ label {
     }
 }
 
-/* Telas grandes (laptops/desktops) */
 @media (min-width: 1024px) {
     body {
         background-color: rgb(55, 52, 156);
